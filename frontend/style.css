@@ -30,3 +30,64 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+
+.medicine-card {
+    display: inline-flex;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 17em;
+}
+
+h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+
+.medicine-form {
+    width: 100%;
+}
+
+.medicine-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.medicine-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.medicine-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.medicine-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0,103,177);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.medicine-form input[type="submit"]:hover {
+    background-color: #04538D;
+}
