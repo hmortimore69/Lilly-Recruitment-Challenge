@@ -30,13 +30,79 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+header {
+    margin: 0px 20px;
+    padding: 10px;
+}
 
+#average-price {
+    margin-top: -20px;
+}
+
+#medicine-list-section {
+    margin: 10px 20px;
+    max-width: 800px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#medicine-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 27em;
+    overflow-y: auto; 
+}
+
+#medicine-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    color: #333333;
+    transition: background-color 0.2s ease;
+}
+
+/* Alternating background colours for easier reading */
+#medicine-list li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#medicine-list li:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Ensure first child has border so each element has top and bottom */
+#medicine-list li:first-child { 
+    border-top: 1px solid #ccc;
+}
+
+#medicine-list li:hover {
+    background-color: #e6f2ff;
+    cursor: pointer;
+}
+
+/* Text styles for name and price */
+#medicine-list .medicine-name {
+    font-weight: bold;
+    color: #04538D;
+}
+
+#medicine-list .medicine-price {
+    color: #000000;
+    font-size: 16px;
+}
+
+/* Each card for different operations */
 .medicine-card {
     display: inline-flex;
     background-color: white;
-    padding: 10px;
     border-radius: 10px;
-    margin: 15px;
+    margin: 0px 20px;
+    padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 17em;
 }
@@ -58,7 +124,7 @@ h3 {
     color: #555;
 }
 
-.medicine-form input {
+.medicine-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -67,7 +133,7 @@ h3 {
     font-size: 14px;
 }
 
-.medicine-form select {
+.medicine-form input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;

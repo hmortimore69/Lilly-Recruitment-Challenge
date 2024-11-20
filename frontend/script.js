@@ -7,13 +7,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateMedicineSelect = document.getElementById('update-medicine-select');
     const deleteMedicineSelect = document.getElementById('delete-medicine-select');
 
-    function resetForms() {
-        newMedicineForm.reset();
-        updateMedicineForm.reset();
-        deleteMedicineForm.reset();
-    }
+    // Reset all forms
+    newMedicineForm.reset();
+    updateMedicineForm.reset();
+    deleteMedicineForm.reset();
 
-    resetForms();
+    fetch('http://localhost:8000/average')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const averagePriceElement = document.getElementById('average-price');
+
+            averagePriceElement.textContent = `Average Price: £${data}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
 
     fetch('http://localhost:8000/medicines')
         .then(response => {
@@ -26,19 +40,29 @@ document.addEventListener('DOMContentLoaded', function() {
             data.medicines.forEach(medicine => {
                 const name = medicine.name || "Unknown Medicine";
                 const price = medicine.price !== null ? `£${medicine.price.toFixed(2)}` : "Price Unavailable";
-
                 const listItem = document.createElement('li');
-                listItem.textContent = `${name}: ${price}`;
+            
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'medicine-name';
+                nameSpan.textContent = name;
+            
+                const priceSpan = document.createElement('span');
+                priceSpan.className = 'medicine-price';
+                priceSpan.textContent = price;
+            
+                listItem.appendChild(nameSpan);
+                listItem.appendChild(priceSpan);
                 medicineList.appendChild(listItem);
 
+                // Dropdown boxes
                 const updateOption = document.createElement('option');
                 updateOption.value = medicine.name;
-                updateOption.textContent = `${name}`;
+                updateOption.textContent = name;
                 updateMedicineSelect.appendChild(updateOption);
 
                 const deleteOption = document.createElement('option');
                 deleteOption.value = medicine.name;
-                deleteOption.textContent = `${name}`;
+                deleteOption.textContent = name;
                 deleteMedicineSelect.appendChild(deleteOption);
             })
         })
@@ -52,7 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const name = formData.get('name');
     
         fetch(`http://localhost:8000/medicines/${name}`)
-            .then(response => response.ok ? response.json() : null)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data && data.name === name) {
                     alert('This medicine already exists in the list.');
@@ -63,12 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     method: this.method,
                     body: formData
                 });
-            })
-            .then(response => response && response.json())
-            .then(data => {
-                if (data) {
-                    console.log("Success:", data);
-                }
             })
             .catch(error => {
                 console.error('Error:', error);
