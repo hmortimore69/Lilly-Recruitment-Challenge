@@ -91,3 +91,11 @@ h3 {
 .medicine-form input[type="submit"]:hover {
     background-color: #04538D;
 }
+
+#delete-submit {
+    background-color: #d52b1e;
+}
+
+#delete-submit:hover {
+    background-color: #af261b;
+}
