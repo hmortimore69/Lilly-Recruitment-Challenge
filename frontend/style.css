@@ -32,7 +32,7 @@ body {
 /* ---- Your custom styles below ---- */
 header {
     margin: 0px 20px;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
 }
 
 #average-price {
@@ -40,8 +40,12 @@ header {
 }
 
 #medicine-list-section {
-    margin: 10px 20px;
-    max-width: 800px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px 20px;
+    width: 800px;
+    max-height: 752px;
     padding: 10px;
     background-color: white;
     border-radius: 8px;
@@ -52,8 +56,8 @@ header {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    max-height: 27em;
-    overflow-y: auto; 
+    flex: 1;
+    overflow-y: auto;
 }
 
 #medicine-list li {
@@ -82,7 +86,6 @@ header {
 
 #medicine-list li:hover {
     background-color: #e6f2ff;
-    cursor: pointer;
 }
 
 /* Text styles for name and price */
@@ -131,6 +134,7 @@ h3 {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .medicine-form input {
@@ -151,7 +155,7 @@ h3 {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .medicine-form input[type="submit"]:hover {
@@ -164,4 +168,9 @@ h3 {
 
 #delete-submit:hover {
     background-color: #af261b;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
 }

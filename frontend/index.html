@@ -18,39 +18,40 @@
         <section id="medicine-list-section">
             <ul id="medicine-list"></ul>
         </section>
-        <hr>
-        <section class="medicine-card">
-            <form id="new-medicine-form" class="medicine-form" action="http://localhost:8000/create" method="POST">
-                <h3>New Medicine</h3>
-                <label for="medicine">Medicine:</label>
-                <input type="text" id="medicine" name="name" placeholder="Medicine Name" required>
-                
-                <label for="medicine-price">Price:</label>
-                <input type="number" min="0" step="0.01" id="new-medicine-price" name="price" placeholder="Price" required>
-                
-                <input type="submit" value="Add">
-            </form>
-        </section>
-        <section class="medicine-card">
-            <form id="update-medicine-form" class="medicine-form" action="http://localhost:8000/update" method="POST">
-                <h3>Update Medicine</h3>
-                <label for="update-medicine">Medicine:</label>
-                <select id="update-medicine-select" name="name" required></select>
-                
-                <label for="medicine-price">Price:</label>
-                <input type="number" min="0" step="0.01" id="update-medicine-price" name="price" placeholder="Price" required>  
+        <section id="cud-operations">
+            <div class="medicine-card">
+                <form id="new-medicine-form" class="medicine-form" action="http://localhost:8000/create" method="POST">
+                    <h3>New Medicine</h3>
+                    <label for="medicine">Medicine:</label>
+                    <input type="text" id="medicine" name="name" placeholder="Medicine Name" required>
+                    
+                    <label for="medicine-price">Price:</label>
+                    <input type="number" min="0" step="0.01" id="new-medicine-price" name="price" placeholder="Price" required>
+                    
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+            <div class="medicine-card">
+                <form id="update-medicine-form" class="medicine-form" action="http://localhost:8000/update" method="POST">
+                    <h3>Update Medicine</h3>
+                    <label for="update-medicine">Medicine:</label>
+                    <select id="update-medicine-select" name="name" required></select>
+                    
+                    <label for="medicine-price">Price:</label>
+                    <input type="number" min="0" step="0.01" id="update-medicine-price" name="price" placeholder="Price" required>  
 
-                <input type="submit" value="Update">
-            </form>
-        </section>
-        <section class="medicine-card">
-            <form id="delete-medicine-form" class="medicine-form" action="http://localhost:8000/delete" method="DELETE">
-                <h3>Delete Medicine</h3>
-                <label for="delete-medicine">Medicine:</label>
-                <select id="delete-medicine-select" name="name" required></select>
-        
-                <input id="delete-submit" type="submit" value="Delete">
-            </form>
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+            <div class="medicine-card">
+                <form id="delete-medicine-form" class="medicine-form" action="http://localhost:8000/delete" method="DELETE">
+                    <h3>Delete Medicine</h3>
+                    <label for="delete-medicine">Medicine:</label>
+                    <select id="delete-medicine-select" name="name" required></select>
+            
+                    <input id="delete-submit" type="submit" value="Delete">
+                </form>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>
