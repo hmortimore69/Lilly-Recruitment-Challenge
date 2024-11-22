@@ -68,7 +68,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error:', error);
-        }); 
+        });
+        
+    medicineList.addEventListener('click', function(event) {
+        let target = event.target;
+        
+        if (target && target.nodeName !== 'LI') {
+            target = target.parentElement;
+        }
+
+        if (target && target.nodeName === 'LI') {
+            const selectedMedicineSpan = target.querySelector('.medicine-name');
+
+            if (selectedMedicineSpan) {
+                const selectedMedicine = selectedMedicineSpan.textContent;
+                updateMedicineSelect.value = selectedMedicine;
+                deleteMedicineSelect.value = selectedMedicine;
+            }
+        }
+    });
 
     newMedicineForm.addEventListener('submit', function(event) {
         event.preventDefault();

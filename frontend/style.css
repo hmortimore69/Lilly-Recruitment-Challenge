@@ -86,6 +86,7 @@ header {
 
 #medicine-list li:hover {
     background-color: #e6f2ff;
+    cursor: pointer;
 }
 
 /* Text styles for name and price */
