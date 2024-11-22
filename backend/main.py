@@ -130,8 +130,7 @@ def average_med():
     with open('data.json') as meds:
         current_db = json.load(meds)
         total = 0
-        count = 0 
-
+        count = 0
         for med in current_db["medicines"]:
             price = med.get('price', 0.00)  # Get price or default to 0
             if isinstance(price, float):

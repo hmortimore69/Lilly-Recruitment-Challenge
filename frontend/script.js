@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:8000/average')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Response:', response);
             }
             return response.json();
         })
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:8000/medicines')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Response:', response);
             }
             return response.json();
         })
         .then(data => {
             data.medicines.forEach(medicine => {
-                const name = medicine.name || "Unknown Medicine";
+                const name = medicine.name || "Unnamed Medicine";
                 const price = medicine.price !== null ? `£${medicine.price.toFixed(2)}` : "Price Unavailable";
                 const listItem = document.createElement('li');
             
@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Dropdown boxes
                 const updateOption = document.createElement('option');
-                updateOption.value = medicine.name;
+                updateOption.value = name;
                 updateOption.textContent = name;
                 updateMedicineSelect.appendChild(updateOption);
 
                 const deleteOption = document.createElement('option');
-                deleteOption.value = medicine.name;
+                deleteOption.value = name;
                 deleteOption.textContent = name;
                 deleteMedicineSelect.appendChild(deleteOption);
             })
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`http://localhost:8000/medicines/${name}`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Response:', response);
                 }
                 return response.json();
             })
