@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Dropdown boxes
                 const updateOption = document.createElement('option');
-                updateOption.value = name;
+                updateOption.value = medicine.name;
                 updateOption.textContent = name;
                 updateMedicineSelect.appendChild(updateOption);
 
                 const deleteOption = document.createElement('option');
-                deleteOption.value = name;
+                deleteOption.value = medicine.name;
                 deleteOption.textContent = name;
                 deleteMedicineSelect.appendChild(deleteOption);
             })
@@ -81,7 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedMedicineSpan = target.querySelector('.medicine-name');
 
             if (selectedMedicineSpan) {
-                const selectedMedicine = selectedMedicineSpan.textContent;
+                let selectedMedicine = selectedMedicineSpan.textContent;
+                if (selectedMedicine === "Unnamed Medicine") {
+                    selectedMedicine = "";
+                }
+
                 updateMedicineSelect.value = selectedMedicine;
                 deleteMedicineSelect.value = selectedMedicine;
             }
